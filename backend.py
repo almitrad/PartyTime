@@ -1,6 +1,7 @@
 import sqlite3 as s3
 from datetime import datetime as dtt
 from datetime import datetime as dt
+from datetime import timedelta as td
 
 # Create sqlite database connection and cursor
 conn = s3.connect('database.db')
@@ -23,6 +24,8 @@ conn.executescript(script2)
 # Clears all contents from all tables
 def clear_tables():
     cur.executescript(script3)
+
+""" Reading from Database """
 
 # Compares the current time to the time passed in and returns True if the current time is later
 def is_now_between(datetime1, datetime2):
@@ -60,13 +63,41 @@ def get_attendees(party_id):
     + 'from user '
     + 'where user_id in( '
     + 'select user_id '
-    + 'from invite_lst '
+    + 'from atendee_lst '
     + 'where party_id = '
     + str(party_id) + ');')
     attendees = [row for row in cur.fetchall()]
     return attendees
 
 # Return a list of parties a user is attending
+def get_users_parties(user_id):
+    cur.execute('select name '
+    + 'from frat '
+    + 'where frat_id in ( '
+    + ' select frat_id '
+    +  'from party '
+    +  'where party_id in ( '
+    +    'select party_id '
+    +    'from atendee_lst '
+    +    'where user_id = '
+    + str(user_id) + '));'
+    )
+    parties = [row for row in cur.fetchall()]
+    return parties
+
+# Return a list of users invited to a party
+def get_attendees(party_id):
+    cur.execute('select first_name, last_name '
+    + 'from user '
+    + 'where user_id in( '
+    + 'select user_id '
+    + 'from invite_lst '
+    + 'where party_id = '
+    + str(party_id) + ');')
+    attendees = [row for row in cur.fetchall()]
+    return attendees
+
+# Return a list of parties a user is invited to
 def get_users_parties(user_id):
     cur.execute('select name '
     + 'from frat '
@@ -88,11 +119,52 @@ def get_frat_by_code(access_code):
     + 'from frat '
     + 'where access_code = \''
     + access_code + '\';')
+    result =  cur.fetchone()
+    return result
+
+def get_max_party_id():
+    cur.execute('select max(party_id) from party;')
+    max = cur.fetchone()
+    assert max != None, 'No parties found.'
+    return max[0]
+
+def get_max_user_id():
+    cur.execute('select max(user_id) from user;')
+    max = cur.fetchone()
+    assert max != None, 'No users found.'
+    return max[0]
+
+def get_frat(name):
+    cur.execute('select frat_id '
+    + 'from frat '
+    + 'where name = \'' + name + '\';')
+    result =  cur.fetchone()
+    assert result != None, 'No frats found.'
+    return result[0]
+
+""" Writing to Database """
+def add_user(first_name, last_name, email, passwd, gender, age, status_type='guest', frat_id=None):
+    user_id = get_max_user_id() + 1
+    params = (str(user_id),status_type,first_name,last_name,email,passwd,gender,age,frat_id)
+    cur.execute('insert into user (user_id, status_type, first_name, last_name, email, passwd, gender, age, frat_id) values ('
+    + '?, ?, ?, ?, ?, ?, ?, ?, ?);', params)
     return cur.fetchone()
 
-
+def add_party(frat_name, type='public', status='open', start_time=str(dtt.now() + td(days=14)), end_time=str(dtt.now() + td(days=14))):
+    party_id = get_max_party_id() + 1
+    frat_id = get_frat(frat_name)
+    params = (str(party_id),str(frat_id),type,status,str(dtt.now()),start_time,end_time)
+    cur.execute('insert into party (party_id, frat_id, type, status, posted_time, start_time, end_time) values ('
+    + '?, ?, ?, ?, ?, ?, ?);', params)
+    return cur.fetchone()
 
 """
+print(add_user('j', 'r', 're','wr qe','M',23))
+print(cur.execute('select * from user;').fetchall())
+
+print(add_party('Alpha Alpha Alpha'))
+print(cur.execute('select * from party;').fetchall())
+
 print(get_frat_by_code('sWq13#'))
 print(get_attendees(2))
 print(get_users_parties(2))
