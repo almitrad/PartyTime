@@ -1,0 +1,236 @@
+/*logo*/
+.partytime-logo{
+	margin-top: 0;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+.text{
+	padding: 20px;
+	font-family: "proxima-nova", sans-serif;
+}
+
+h1{
+	color: #05004d;
+	font-family: "proxima-nova", sans-serif;
+	font-size: 36px;
+	line-height: 46px;
+	font-weight: 100;
+}
+
+h3{
+	color: #05004d;
+	font-family: "proxima-nova", sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 100;
+}
+
+input{
+	width: 250px;
+	height: 30px;
+	border: none;
+	border: 0.5px solid #05004d;
+	padding: 10px;
+	color: #05004d;
+	font-size: 18px;
+	font-family: "proxima-nova", sans-serif;
+	font-weight: 100;
+}
+
+input:focus{
+	outline-style:none;
+	box-shadow:none;
+	border-color:transparent;
+	border-bottom: 1px solid lightgrey;
+}
+
+h4{
+	display: inline-block;
+}
+
+.register {
+    background-color: #05004d; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "proxima-nova", sans-serif;
+    font-size: 16px;
+    margin-left: 20%
+}
+
+button:hover {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+
+button:focus{
+	outline: none;
+}
+
+.account-info{
+	margin-left: 30%;
+	margin-top: 10%;
+	
+}
+
+.anonymous{
+	width: 30px;
+	height: 30px;
+}
+
+#email-signup-input{
+	margin-left: 15%
+}
+
+.banner{
+	height: 20px%;
+	background:#05004d;
+}
+
+#background-img{
+	width: 40%;
+	height: 100%;
+	position: fixed;
+	margin-top: 0;
+	float: left;
+}
+
+.log-in{
+	margin-left: 40%;
+	margin-top: 10%;
+}
+
+#log-in{
+	margin-left: 10%;
+}
+
+#signup{
+	margin-left: 10%;
+}
+
+.choose-type-user{
+	background-color: white; 
+    border: 2px solid #05004d;
+    color: #05004d;
+    padding: 30px 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "proxima-nova", sans-serif;
+    font-size: 16px;
+    margin-left: 20%
+}
+
+.choose-user{
+	margin-left: 25%;
+	margin-top: 10%;
+}
+
+.textbox{
+	border: 1px solid #05004d;
+	text-decoration: none;
+	color: #05004d;
+    padding: 30px 100px;
+    font-family: "proxima-nova", sans-serif;
+    font-size: 16px;
+    display: inline-block; 
+
+}
+
+textarea:focus{
+	outline-style:none;
+	box-shadow:none;
+	border-color:transparent;
+	border-bottom: 1px solid lightgrey;
+}
+
+.report{
+	margin-left: 5%;
+}
+
+.upcoming-parties{
+	background-color: white; 
+    border: 2px solid #05004d;
+    color: #05004d;
+    padding: 30px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "proxima-nova", sans-serif;
+    font-size: 16px;
+    margin-right: 5%;
+}
+
+#log-in-title{
+	margin-left: 10%;
+}
+
+ #sign-up-title{
+ 	margin-left: 20%;
+ }
+/*stars*/
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+ 
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+ 
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+ 
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+.frats{
+	margin-left: 10%;
+}
+
+#index-page-title{
+	margin-left: 20%
+
+}
+
+/*footer*/
+footer.footer {
+    height: 80px;
+    width: 100%;
+    background-color: #05004d;
+}
+
+p.copyright {
+	text-align: center;
+    color: white;
+    font-family: "proxima-nova", sans-serif;
+    line-height: 40px;
+    font-size: 16px;
+    padding-top: 20px;
+}
+
+#footer-team{
+	margin-top: 1650px;
+}
+
+.banner{
+	height: 240px;
+    width: 100%;
+    background-color: #05004d;
+}
+
+
+
