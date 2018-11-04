@@ -14,16 +14,16 @@ insert into user (user_id, status_type, first_name, last_name, email, passwd, ge
 ;
 
 
-insert into atendee_lst (antendee_lst_id, party_id, user_id) values
-  (1, 1, 1),
-  (2, 2, 2)
+insert into atendee_lst (party_id, user_id) values
+  (1, 1),
+  (2, 2)
 ;
 
-insert into invite_lst (invite_lst_id, party_id, user_id) values
-  (1, 1, 2),
-  (2, 2, 1),
-  (3, 1, 1),
-  (4, 2, 2)
+insert into invite_lst (party_id, user_id) values
+  (1, 2),
+  (2, 1),
+  (1, 1),
+  (2, 2)
 ;
 /*
 insert into invite (invite_id, invite_desc) values

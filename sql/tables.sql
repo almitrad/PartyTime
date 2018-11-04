@@ -30,16 +30,14 @@ create table rating (
 );
 
 create table invite_lst (
-  invite_lst_id integer  primary key,
   party_id integer references party (party_id),
-  user_id number --references user(user_id)
+  user_id number references user(user_id)
   --invite_id number references invite(invite_id)
 );
 
 create table atendee_lst (
-  antendee_lst_id integer  primary key,
   party_id integer references party (party_id),
-  user_id number --references user(user_id)
+  user_id number references user(user_id)
   --invite_id number references invite(invite_id)
 );
 
