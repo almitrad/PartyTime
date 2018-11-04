@@ -2,8 +2,6 @@ import sqlite3 as s3
 from datetime import datetime as dtt
 from datetime import datetime as dt
 from datetime import timedelta as td
-import random
-import string
 
 # Create sqlite database connection and cursor
 conn = s3.connect('database.db')
@@ -18,11 +16,6 @@ script2 = file2.read()
 
 file3 = open('clear_tables.sql', 'r')
 script3 = file3.read()
-
-file_name = 'database.db'
-conn = s3.connect(file_name)
-cur = conn.cursor()
-
 
 # Execute SQL scripts which create and populate tables with tester data
 conn.executescript(script1)
@@ -145,19 +138,6 @@ def get_max_user_id():
     assert max != None, 'No users found.'
     return max[0]
 
-def get_max_frat_id():
-    cur.execute('select max(frat_id) from user;')
-    max = cur.fetchone()
-    assert max != None, 'No frats found.'
-    return max[0]
-
-def get_max_rating_id():
-    cur.execute('select max(rating_id) from rating;')
-    max = cur.fetchone()
-    assert max != None, 'No ratings found.'
-    return max[0]
-
-
 def get_frat(name):
     cur.execute('select frat_id '
     + 'from frat '
@@ -168,8 +148,6 @@ def get_frat(name):
 
 """ Writing to Database """
 def add_user(first_name, last_name, email, passwd, gender, age, status_type='guest', frat_id=None):
-    conn = s3.connect(file_name)
-    cur = conn.cursor()
     user_id = get_max_user_id() + 1
     params = (str(user_id),status_type,first_name,last_name,email,passwd,gender,age,frat_id)
     cur.execute('insert into user (user_id, status_type, first_name, last_name, email, passwd, gender, age, frat_id) values ('
@@ -184,28 +162,26 @@ def add_party(frat_name, type='public', status='open', start_time=str(dtt.now() 
     + '?, ?, ?, ?, ?, ?, ?);', params)
     return cur.fetchone()
 
-def add_frat(name, location, user_id, access_code=''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(9))):
-    frat_id = get_max_frat_id() + 1
-    params = (frat_id, name,location,first_name,user_id,access_code)
-    cur.execute('insert into user (frat_id, name, location, first_name, user_id, access_code) values ('
-    + '?, ?, ?, ?, ?);', params)
-    return cur.fetchone()
-
-def add_rating(party_id, user_id, rating, rating_desc):
-    rating_id = get_max_rating_id() + 1
-    params = (rating_id, party_id, user_id, rating, rating_desc)
-    cur.execute('insert into rating (rating_id, party_id, user_id, rating, rating_desc) values ('
-    + '?, ?, ?, ?, ?);', params)
-    return cur.fetchone()
-
-def add_invite(party_id, user_id):
-    params = (party_id, user_id)
-    cur.execute('insert into invite_lst(party_id, user_id) values ('
-    + '?, ?);', params)
-    return cur.fetchone()
-
-def add_atendee(party_id, user_id):
-    params = (party_id, user_id)
-    cur.execute('insert into atendee_lst(party_id, user_id) values ('
-    + '?, ?);', params)
-    return cur.fetchone()
+"""
+print(add_user('j', 'r', 're','wr qe','M',23))
+print(cur.execute('select * from user;').fetchall())
+print(add_party('Alpha Alpha Alpha'))
+print(cur.execute('select * from party;').fetchall())
+print(get_frat_by_code('sWq13#'))
+print(get_attendees(2))
+print(get_users_parties(2))
+#print(get_open_parties()) # delete later
+#print(get_open_parties())
+dt1 = dtt.strptime(cur.fetchone()[3], '%Y-%m-%d %H:%M:%S')
+dt1 = dtt.strptime(cur.fetchone()[3], '%Y-%m-%d %H:%M:%S')
+print(is_now_latest(dt1))
+print(dt1)
+print(max(dt1,dtt.now()))
+dt1 = dtt.strptime(cur.fetchone()[5], '%Y-%m-%d %H:%M:%S')
+print(dt1)
+print(dt1.time().hour)
+print(dt1.time().hour % 12)
+print(type(cur.fetchone()))
+for i in cur.fetchone():
+    print(i)
+"""
