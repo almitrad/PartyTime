@@ -64,6 +64,10 @@ def get_open_parties():
             open_parties.append(i[:3] + (get_time(i[4]),))
     return open_parties
 
+def get_all_parties():
+    cur.execute('select * from party;')
+    return cur.fetchall()
+
 # Return a list of users attending a party
 def get_attendees(party_id):
     cur.execute('select first_name, last_name '
