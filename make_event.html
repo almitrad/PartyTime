@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html> 
 	<head>
-		<title>Log In</title>
+		<title>Make Event</title>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
       	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 	</head>
 	<body>
+		<i class="anonymous"></i>
 		<div class = "banner">
 			<div class = "partytime-initial-logo">
 				<img src = "partytimelogo.png" class = "partytime-logo">
-			</div>
+			</div> 
 		</div>
-		<div class = "log-in">
-			<h1 id="log-in-title">Log In</h1>
-			<input type="text" id = "email-input" placeholder="University Email">
+		<div align='center'>
+			<h1>Make Event</h1>
+			<input type= "text" id = "event-name" placeholder="Event Name">
+			<input type= "text" id = "event-date" placeholder="Date">
 			<br>
 			<br>
-			<input type= "password" id = "password-input" placeholder="Password">
+			<input type= "text" id = "start-time" placeholder="Start Time">
+			<input type= "text" id = "end-time" placeholder="End Time">
 			<br>
 			<br>
-			<a href = "index2.html" id = "log-in" class = "register">Log In</a>
-			<br><br>
-			<a href = "signup.html" id = "signup" class = "register">Sign Up</a>
+			<input type= "text" id = "admission" placeholder="Admission">
+			<input type= "text" id = "description" placeholder="Description">
+			<br>
+			<br>
+			<a href = "index2.html" class="register">Finish</a>
 		</div>
 		<br>
 		<br>
@@ -31,9 +36,10 @@
 		<br>
 		<br>
 	</body>
+
 	<footer class="footer">
 	    <div class="footer-wrapper">
-	        <p class="copyright">© PartyTime 2018</p>
+	        <p class="copyright">Copyright PartyTime 2018</p>
 	    </div>
 	</footer>
 </html>
