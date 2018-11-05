@@ -24,8 +24,8 @@ Ulimately, this application provides a streamlined platform for exploring, ratin
 </ul>
 
 ## Team Members
-1. [Sino Oulad Daoud] (https://github.com/sinood)
-2. [Aditya Ramkumar] (https://github.com/adityaramkumar)
-3. [Almitra Dabholkar] (https://github.com/almitrad)
-4. [Micah Yong] (https://github.com/micahtyong)
+1. [Sino Oulad Daoud](https://github.com/sinood)
+2. [Aditya Ramkumar](https://github.com/adityaramkumar)
+3. [Almitra Dabholkar](https://github.com/almitrad)
+4. [Micah Yong](https://github.com/micahtyong)
 
