@@ -17,6 +17,7 @@ Ulimately, this application provides a streamlined platform for exploring, ratin
 ## Technologies Used
 <ul>
   <li>Python</li>
+  <li>SQL</li>
   <li>Flask</li>
   <li>Javascript</li>
   <li>HTML</li>
