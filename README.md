@@ -9,10 +9,10 @@ This application also provides a portal for party hosts. Not only can party host
 Ulimately, this application provides a streamlined platform for exploring, rating, and attending parties for both attendees and hosts. 
 
 ## Attendee Portal
-<img src = "Login.png" width = "250" title = "Log In"> <img src = "Home.png" width = "250" title = "Home"> <img src = "My Parties.png" width = "250" title = "My Parties">
+<img src = "prototypes/Login.png" width = "250" title = "Log In"> <img src = "prototypes/Home.png" width = "250" title = "Home"> <img src = "prototypes/My Parties.png" width = "250" title = "My Parties">
 
 ## Host Portal
-<img src = "Frat Register.png" width = "250" title = "Frat Register"> <img src = "Event Form.png" width = "250" title = "Create an Event"> <img src = "My Events.png" width = "250" title = "Frat Events">
+<img src = "prototypes/Frat Register.png" width = "250" title = "Frat Register"> <img src = "prototypes/Event Form.png" width = "250" title = "Create an Event"> <img src = "prototypes/My Events.png" width = "250" title = "Frat Events">
 
 ## Technologies Used
 <ul>
